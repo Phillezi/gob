@@ -33,5 +33,4 @@ func main() {
 	//	slog.Default().Error("Failed to build", "error", err)
 	//	os.Exit(1)
 	//}
-	//slog.Default().Info("gob version", "version", version)
 }

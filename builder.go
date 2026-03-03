@@ -109,7 +109,7 @@ targets:
 		PrintTargets(os.Stderr, b.targets)
 	}
 
-	if b.exitOnError != nil && *b.exitOnError {
+	if exitCode != 0 && b.exitOnError != nil && *b.exitOnError {
 		os.Exit(exitCode)
 	}
 
