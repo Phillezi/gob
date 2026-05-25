@@ -70,7 +70,7 @@ func PrintTargets(w io.Writer, targets map[string]Target) {
 		}
 	}
 
-	fmt.Fprintln(w, "Available targets:\n")
+	fmt.Fprintln(w, "Available targets:")
 
 	for _, name := range names {
 		desc := targets[name].String()

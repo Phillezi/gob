@@ -2,6 +2,7 @@ package main
 
 import (
 	"log/slog"
+	"time"
 
 	"github.com/phillezi/gob"
 )
@@ -14,13 +15,21 @@ func init() {
 }
 
 func main() {
-	gob.New(gob.WithDefaultTarget("all")).
+	_ = gob.New(gob.WithDefaultTarget("all")).
 		Add(
 			"all",
 			gob.Static(),
 		).Add(
 		"clean",
 		gob.Clean(),
+	).Add(
+		"test",
+		gob.Test(
+			gob.WithRace(),
+			gob.WithCoverage(),
+			gob.WithTimeout(30*time.Second),
+			gob.WithVerbose(),
+		),
 	).Run()
 	//.Matrix(
 	//	gob.PopularOSes,
